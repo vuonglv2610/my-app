@@ -1,11 +1,19 @@
 const navbarConfig = [
   {
-    href: "",
+    href: "/",
     title: "Home page",
   },
   {
-    href: "product",
+    href: "admin/product",
     title: "Product management",
+  },
+  {
+    href: "#",
+    title: "User management",
+  },
+  {
+    href: "#",
+    title: "Category management",
   },
 ];
 

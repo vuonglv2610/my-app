@@ -3,9 +3,9 @@ import Navbar from "./Navbar.tsx";
 
 const ClientLayout = () => {
   return (
-    <div>
+    <div className="flex">
       <Navbar />
-      ClientLayout
+      <div className="flex-grow">Client site</div>
     </div>
   );
 };

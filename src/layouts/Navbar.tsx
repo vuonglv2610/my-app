@@ -4,15 +4,19 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <ul>
-      {navbarConfig.map((item) => {
-        return (
-          <li key={item.href}>
-            <Link to={item.title}>{item.title}</Link>
-          </li>
-        );
-      })}
-    </ul>
+    <div className="w-[300px] h-screen flex items-center flex-col p-[40px] bg-menu">
+      <div>LOGO</div>
+      <ul>
+        {navbarConfig.map((item) => {
+          return (
+            <li key={item.href}>
+              <Link to={item.href}>{item.title}</Link>
+            </li>
+          );
+        })}
+      </ul>
+      <div>Footer</div>
+    </div>
   );
 };
 
