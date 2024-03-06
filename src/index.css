@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 .bg-menu {
   background: rgba(0, 0, 0, 0.04);
   -moz-transition: all 0.5s ease;
@@ -31,4 +40,10 @@
 
 .active-menu .menu-hover:hover:after {
   transform: scaleX(0);
+}
+
+.bg-main-infor {
+  background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20230527/pngtree-8-best-free-mountain-background-images-4k-wallpapers-image_2670051.jpg);
+  background-size: cover;
+  background-attachment: fixed;
 }

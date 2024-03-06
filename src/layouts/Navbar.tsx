@@ -8,7 +8,7 @@ const Navbar = () => {
   console.log("history", history);
 
   return (
-    <div className="w-[300px] h-screen flex items-center flex-col p-[40px] bg-menu">
+    <div className="w-[300px] h-screen flex items-center flex-col p-[40px] bg-menu fixed">
       <div className="flex flex-col h-[85vh] gap-[120px]">
         <div className="text-[2.5rem]">
           <Link to="#">

@@ -8,7 +8,7 @@ const navbarConfig = [
     title: "Home page 2",
   },
   {
-    href: "admin/product",
+    href: "/admin/product",
     title: "Product management",
   },
   {
