@@ -4,20 +4,12 @@ const navbarAdminConfig = [
       title: "Home page",
     },
     {
-      href: "/admin",
-      title: "Home page 2",
-    },
-    {
       href: "/admin/product",
       title: "Product management",
     },
     {
-      href: "#",
-      title: "User management",
-    },
-    {
-      href: "#",
-      title: "Category management",
+      href: "/",
+      title: "Client site",
     },
   ];
   

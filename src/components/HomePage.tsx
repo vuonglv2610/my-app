@@ -3,7 +3,7 @@ import MainInfor from './MainInfor.tsx'
 
 const HomePage = () => {
   return (
-    <div className="flex-grow ml-[300px] px-4 bg-main-infor">
+    <div className="flex-grow px-4 bg-main-infor">
         <h1>Client site</h1>
         <MainInfor />
         <div className="h-[250px]">

@@ -3,7 +3,9 @@ import Card from "../components/Card.tsx";
 
 const ProductsList = () => {
   return (
-    <div className="flex justify-between">
+    <div className="grid grid-cols-3 gap-[40px]">
+      <Card />
+      <Card />
       <Card />
       <Card />
       <Card />

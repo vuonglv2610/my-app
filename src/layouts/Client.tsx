@@ -6,7 +6,9 @@ const ClientLayout = () => {
   return (
     <div className="flex text-white">
       <Navbar />
-      <Outlet/>
+      <div className="ml-[300px]">
+        <Outlet />
+      </div>
     </div>
   );
 };
