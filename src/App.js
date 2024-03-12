@@ -7,10 +7,15 @@ import ProductsList from './pages/Products.tsx';
 import NotFoundPage from './pages/404.tsx';
 import HomePage from './components/HomePage.tsx';
 import Gallery from './components/Gallery.tsx';
+import AOS from 'aos';
+import { useEffect } from 'react';
+import "aos/dist/aos.css";
+import LoginPage from './pages/Login.tsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
+      <Route path='/login' element={<LoginPage />} />
       <Route path='/' element={<ClientLayout />} >
         <Route index element={<HomePage />} />
         <Route path='/product' element={<ProductsList />} />
@@ -26,6 +31,12 @@ const router = createBrowserRouter(
 );
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000
+    });
+    AOS.refresh();
+  }, []);
   return (
     <div className="App">
       <RouterProvider router={router} />

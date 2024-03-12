@@ -1,0 +1,10 @@
+#todo: private route,json server auth
+
+axios , toast
+
+#mission: 
+    - create ui
+        -client
+        -admin
+    - create api
+    - deploy

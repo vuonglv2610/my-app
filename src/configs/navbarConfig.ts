@@ -4,6 +4,10 @@ const navbarConfig = [
     title: "Home page",
   },
   {
+    href: "/login",
+    title: "Login",
+  },
+  {
     href: "/admin/product",
     title: "Product management",
   },
