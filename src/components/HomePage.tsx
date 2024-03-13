@@ -1,7 +1,14 @@
 import React from "react";
 import MainInfor from "./MainInfor.tsx";
+import { useGetQuery } from "../hooks/useGetQuery.ts";
+import Cookies from 'js-cookie';
 
 const HomePage = () => {
+  const data = useGetQuery("/comments");
+  console.log(data && data);
+
+  Cookies.set('myCookieName', 'cookieValue');
+
   return (
     <div className="flex-grow px-4 bg-main-infor">
       <h1>Client site</h1>

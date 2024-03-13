@@ -11,6 +11,8 @@ import AOS from 'aos';
 import { useEffect } from 'react';
 import "aos/dist/aos.css";
 import LoginPage from './pages/Login.tsx';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -40,6 +42,18 @@ function App() {
   return (
     <div className="App">
       <RouterProvider router={router} />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }

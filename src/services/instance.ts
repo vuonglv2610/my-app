@@ -1,13 +1,24 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
-export const instance = axios.create({
-  baseURL: process.env.HOST,
-  timeout: 1000,
-  headers: { "X-Custom-Header": "foobar" },
+const instance = axios.create({
+  baseURL: "http://localhost:3000",
+  // timeout: 1000,
+  // headers: { "X-Custom-Header": "foobar" },
 });
 
-const url = "http://localhost:3000/comments";
+instance.interceptors.request.use(
+  function (config) {
+    const accessToken = Cookies.get("myCookieName");
+    const headers: any = {};
+    if (accessToken) {
+      headers.Authorization = "Bearer " + accessToken;
+    }
+    return { ...config, ...headers };
+  },
+  function (error) {
+    return Promise.reject(error);
+  }
+);
 
-export const getAPI = () => {
-  return instance.get(url);
-};
+export default instance;
