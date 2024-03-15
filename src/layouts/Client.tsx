@@ -6,7 +6,7 @@ const ClientLayout = () => {
   return (
     <div className="flex text-white">
       <Navbar />
-      <div className="ml-[300px]">
+      <div className="ml-[300px] w-full">
         <Outlet />
       </div>
     </div>

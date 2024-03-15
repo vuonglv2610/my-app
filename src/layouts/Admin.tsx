@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import navbarAdminConfig from "../configs/navbarAdminConfig.ts";
 
 const AdminLayout = () => {
+  const [toggle, setToggle] = useState<boolean>(true);
   const history = useLocation();
+
   return (
     <div className="min-h-full">
       <nav className="bg-gray-800">
@@ -18,7 +20,7 @@ const AdminLayout = () => {
                 />
               </div>
               <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
+                <div className="ml-10 flex items-baseline space-x-4 text-white">
                   {navbarAdminConfig.map((item, i) => {
                     return (
                       <Link
@@ -26,7 +28,7 @@ const AdminLayout = () => {
                         to={item.href}
                         className={`${
                           history.pathname === item.href && "bg-gray-900"
-                        }text-white rounded-md px-3 py-2 text-sm font-medium`}
+                        }rounded-md px-3 py-2 text-sm font-medium`}
                         aria-current="page"
                       >
                         {item.title}
@@ -67,6 +69,7 @@ const AdminLayout = () => {
                       id="user-menu-button"
                       aria-expanded="false"
                       aria-haspopup="true"
+                      onClick={() => setToggle(!toggle)}
                     >
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
@@ -78,7 +81,9 @@ const AdminLayout = () => {
                     </button>
                   </div>
                   <div
-                    className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    className={`${
+                      toggle && "hidden"
+                    } absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"`}
                     role="menu"
                     aria-orientation="vertical"
                     aria-labelledby="user-menu-button"
@@ -261,7 +266,7 @@ const AdminLayout = () => {
       </header>
       <main>
         <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-          <Outlet/>
+          <Outlet />
         </div>
       </main>
     </div>

@@ -2,6 +2,8 @@ import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { REGEX_EMAIL } from "../configs/regexConfig.ts";
 import { Link } from "react-router-dom";
+import { login } from "../services/api.ts";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const {
@@ -10,7 +12,14 @@ const LoginPage = () => {
     formState: { errors },
   } = useForm();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onSubmit: SubmitHandler<any> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<any> = async (data) => {
+    const response = await login(data);
+    if(response){
+      toast.success('win');
+    }else{
+      toast.error('error');
+    }
+  };
   return (
     <>
       <section className="bg-gray-50 dark:bg-gray-900">

@@ -1,78 +1,28 @@
 import React from "react";
 import MainInfor from "./MainInfor.tsx";
 import { useGetQuery } from "../hooks/useGetQuery.ts";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 
 const HomePage = () => {
-  const data = useGetQuery("/comments");
-  console.log(data && data);
+  const data: any = useGetQuery("/comments", {}, false);
+  const dataDetail = useGetQuery("/comments/2");
 
-  Cookies.set('myCookieName', 'cookieValue');
+  console.log("dataDetail", dataDetail);
+
+  Cookies.set("myCookieName", "cookieValue");
 
   return (
-    <div className="flex-grow px-4 bg-main-infor">
+    <div className="flex-grow px-4 bg-main-infor w-full">
       <h1>Client site</h1>
       <MainInfor />
-      <div className="h-[250px]" data-aos="fade-up">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-        ipsum repellat voluptatem commodi corporis accusamus, perferendis quam
-        nihil, fugiat possimus maxime laboriosam at ea optio placeat veritatis
-        inventore, officiis magni.
-      </div>
-      <div className="h-[250px]" data-aos="fade-up">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-        ipsum repellat voluptatem commodi corporis accusamus, perferendis quam
-        nihil, fugiat possimus maxime laboriosam at ea optio placeat veritatis
-        inventore, officiis magni.
-      </div>
-      <div className="h-[250px]" data-aos="fade-up">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-        ipsum repellat voluptatem commodi corporis accusamus, perferendis quam
-        nihil, fugiat possimus maxime laboriosam at ea optio placeat veritatis
-        inventore, officiis magni.
-      </div>
-      <div className="h-[250px]" data-aos="fade-up">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-        ipsum repellat voluptatem commodi corporis accusamus, perferendis quam
-        nihil, fugiat possimus maxime laboriosam at ea optio placeat veritatis
-        inventore, officiis magni.
-      </div>
-      <div className="h-[250px]" data-aos="fade-up">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-        ipsum repellat voluptatem commodi corporis accusamus, perferendis quam
-        nihil, fugiat possimus maxime laboriosam at ea optio placeat veritatis
-        inventore, officiis magni.
-      </div>
-      <div className="h-[250px]" data-aos="fade-up">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-        ipsum repellat voluptatem commodi corporis accusamus, perferendis quam
-        nihil, fugiat possimus maxime laboriosam at ea optio placeat veritatis
-        inventore, officiis magni.
-      </div>
-      <div className="h-[250px]" data-aos="fade-up">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-        ipsum repellat voluptatem commodi corporis accusamus, perferendis quam
-        nihil, fugiat possimus maxime laboriosam at ea optio placeat veritatis
-        inventore, officiis magni.
-      </div>
-      <div className="h-[250px]" data-aos="fade-up">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-        ipsum repellat voluptatem commodi corporis accusamus, perferendis quam
-        nihil, fugiat possimus maxime laboriosam at ea optio placeat veritatis
-        inventore, officiis magni.
-      </div>
-      <div className="h-[250px]" data-aos="fade-up">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-        ipsum repellat voluptatem commodi corporis accusamus, perferendis quam
-        nihil, fugiat possimus maxime laboriosam at ea optio placeat veritatis
-        inventore, officiis magni.
-      </div>
-      <div className="h-[250px]" data-aos="fade-up">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-        ipsum repellat voluptatem commodi corporis accusamus, perferendis quam
-        nihil, fugiat possimus maxime laboriosam at ea optio placeat veritatis
-        inventore, officiis magni.
-      </div>
+      {data &&
+        data.map((item) => {
+          return (
+            <div key={item.id} className="h-[250px]" data-aos="fade-up">
+              {item.text}
+            </div>
+          );
+        })}
     </div>
   );
 };

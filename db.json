@@ -1,14 +1,66 @@
 {
   "posts": [
-    { "id": "1", "title": "a title", "views": 100 },
-    { "id": "2", "title": "another title", "views": 200 }
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
   ],
   "comments": [
-    { "id": "1", "text": "a comment about post 1", "postId": "1" },
-    { "id": "2", "text": "another comment about post 1", "postId": "1" }
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1another comment about post 1another comment about post 1another comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "3",
+      "text": "another comment about post 1another comment about post 1another comment about post 1another comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "4",
+      "text": "another comment about post 1another comment about post 1another comment about post 1another comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "5",
+      "text": "another comment about post 1another comment about post 1another comment about post 1another comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "6",
+      "text": "another comment about post 1another comment about post 1another comment about post 1another comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "7",
+      "text": "another comment about post 1another comment about post 1another comment about post 1another comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "8",
+      "text": "another comment about post 1another comment about post 1another comment about post 1another comment about post 1",
+      "postId": "1"
+    }
   ],
   "profile": {
     "name": "typicode"
   },
-  "users": []
+  "users": [
+    {
+      "email": "admin1@mail.com",
+      "password": "$2a$10$T9YKjCSlRUH8EH2lhu/xK.vqyocw3PrPvVYh./Sr04lAiWvKM9No2",
+      "id": "wBkm49b"
+    }
+  ]
 }

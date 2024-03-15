@@ -19,3 +19,13 @@ export const remove = async (url, options = {}) => {
   const response = await instance.delete(url, options);
   return response.data;
 };
+
+export const login = async (data, options = {}) => {
+  const response = await instance.post("/login", data, options);
+  return response.data;
+};
+
+export const register = async (data, options = {}) => {
+  const response = await instance.post("/register", data, options);
+  return response.data;
+};

@@ -3,8 +3,8 @@ import Cookies from "js-cookie";
 
 const instance = axios.create({
   baseURL: "http://localhost:3000",
-  // timeout: 1000,
-  // headers: { "X-Custom-Header": "foobar" },
+  timeout: 1000,
+  headers: { "Content-Type": "application/json" },
 });
 
 instance.interceptors.request.use(
@@ -12,9 +12,9 @@ instance.interceptors.request.use(
     const accessToken = Cookies.get("myCookieName");
     const headers: any = {};
     if (accessToken) {
-      headers.Authorization = "Bearer " + accessToken;
+      // headers.Authorization = "Bearer " + accessToken;
     }
-    return { ...config, ...headers };
+    return { ...config, headers: { ...config.headers, ...headers } };
   },
   function (error) {
     return Promise.reject(error);
