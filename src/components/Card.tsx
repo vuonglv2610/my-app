@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Card = () => {
   return (
     <div className="text-left w-[380px] px-[15px]">
-      <Link to="1">
+      <Link to="/admin/product/1">
         <img
           className="w-[350px] h-[330px] object-cover"
           src="https://preview.colorlib.com/theme/elen/images/image_1.jpg.webp"

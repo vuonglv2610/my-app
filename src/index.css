@@ -24,6 +24,7 @@ html {
   transform: scaleX(0);
   transition: transform 250ms ease-in-out;
   opacity: 1;
+  margin-top: 6px;
 }
 
 .active-menu .menu-hover{

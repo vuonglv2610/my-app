@@ -1,4 +1,5 @@
-#todo: private route,json server auth, thêm form đăng ký
+#todo: private route,json server auth, css form đăng ký
+    tạo 1 context check auth và lưu thông tin đăng nhập
 
 #mission: 
     - create ui

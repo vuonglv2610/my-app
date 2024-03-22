@@ -13,26 +13,31 @@ import "aos/dist/aos.css";
 import LoginPage from './pages/Login.tsx';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
-
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route>
-      <Route path='/login' element={<LoginPage />} />
-      <Route path='/' element={<ClientLayout />} >
-        <Route index element={<HomePage />} />
-        <Route path='/product' element={<ProductsList />} />
-        <Route path='/gallery' element={<Gallery />} />
-        <Route path='/404' element={<NotFoundPage />} />
-      </Route>
-      <Route path="admin" element={<AdminLayout />} >
-        <Route index element={<Dashboard />} />
-        <Route path="product" element={<ProductsList />} />
-      </Route>
-    </Route>
-  )
-);
+import DetailPage from './pages/Detail.tsx';
+import RegisterPage from './pages/RegisterPage.tsx';
+import AuthProvider from './contexts/AuthContext.tsx';
 
 function App() {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route>
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
+        <Route path='/' element={<ClientLayout />} >
+          <Route index element={<HomePage />} />
+          <Route path='/product' element={<ProductsList />} />
+          <Route path='/gallery' element={<Gallery />} />
+          <Route path='/404' element={<NotFoundPage />} />
+        </Route>
+        <Route path="admin" element={<AdminLayout />} >
+          <Route index element={<Dashboard />} />
+          <Route path="product" element={<ProductsList />} />
+          <Route path="product/:id" element={<DetailPage />} />
+        </Route>
+      </Route>
+    )
+  );
+
   useEffect(() => {
     AOS.init({
       duration: 1000
@@ -41,7 +46,9 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
       <ToastContainer
         position="top-right"
         autoClose={5000}

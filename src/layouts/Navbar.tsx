@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import navbarConfig from "../configs/navbarConfig.ts";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import Cookies from "js-cookie";
+import { useAuthProvider } from "../contexts/AuthContext.tsx";
 
 const Navbar = () => {
+  const [navbar, setNavbar] = useState<any>();
   const history = useLocation();
-  console.log("history", history);
+  const { userInfo } = useAuthProvider();
+  const user: any = userInfo;
+
+  useEffect(() => {
+    let checkNavbar = navbarConfig;
+    //check is login
+    if (user) {
+      checkNavbar = checkNavbar.filter(
+        (item) => item.href !== "/login" && item.href !== "/register"
+      );
+      setNavbar(checkNavbar);
+    }
+    //xóa bỏ các phần tử có path là admin
+    if (user && user?.role !== "admin") {
+      checkNavbar = checkNavbar.filter((item) => !item.href.includes("/admin"));
+    }
+
+    setNavbar(checkNavbar);
+  }, [user]);
 
   return (
     <div className="w-[300px] h-screen flex items-center flex-col p-[40px] bg-menu fixed">
@@ -16,25 +37,26 @@ const Navbar = () => {
           </Link>
         </div>
         <ul>
-          {navbarConfig.map((item, i) => {
-            return (
-              <li
-                key={item.title}
-                className={`${
-                  item.href === history.pathname && "active-menu"
-                } pb-2 mb-2 text-[16px] font-bold text-black`}
-              >
-                <Link
+          {navbar &&
+            navbar.map((item) => {
+              return (
+                <li
+                  key={item.title}
                   className={`${
-                    item.href === history.pathname && "[&]:opacity-[100%]"
-                  } menu-hover inline-block w-fit opacity-[40%] h-[26px]`}
-                  to={item.href}
+                    item.href === history.pathname && "active-menu"
+                  } pb-2 mb-2 text-[16px] font-bold text-black`}
                 >
-                  {item.title}
-                </Link>
-              </li>
-            );
-          })}
+                  <Link
+                    className={`${
+                      item.href === history.pathname && "[&]:opacity-[100%]"
+                    } menu-hover inline-block w-fit opacity-[40%] h-[26px]`}
+                    to={item.href}
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              );
+            })}
         </ul>
       </div>
       <div className="flex-1">Footer</div>

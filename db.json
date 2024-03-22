@@ -53,14 +53,20 @@
       "postId": "1"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  },
   "users": [
     {
-      "email": "admin1@mail.com",
-      "password": "$2a$10$T9YKjCSlRUH8EH2lhu/xK.vqyocw3PrPvVYh./Sr04lAiWvKM9No2",
-      "id": "wBkm49b"
+      "email": "biz01@gmail.com",
+      "password": "$2a$10$ng2X8EdM/RdAbPWoNKaL1OWgIP8eTqUkPFLgPLtBr6kJaevDGzWY2",
+      "fullname": "my name",
+      "role": "admin",
+      "id": 1
+    },
+    {
+      "email": "biz02@gmail.com",
+      "password": "$2a$10$aKG66p73llCuC1Wc/kyeoeVyL7wQ2U6anOXRULVXlSZhHUNvIJs/e",
+      "fullname": "my name",
+      "role": "standard",
+      "id": 2
     }
   ]
 }
