@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements, redirect } from "react-router-dom";
 import AdminLayout from './layouts/Admin.tsx';
 import ClientLayout from './layouts/Client.tsx';
 import Dashboard from './pages/Dashboard.tsx';
@@ -16,6 +16,7 @@ import { ToastContainer } from 'react-toastify';
 import DetailPage from './pages/Detail.tsx';
 import RegisterPage from './pages/RegisterPage.tsx';
 import AuthProvider from './contexts/AuthContext.tsx';
+import { getCookie } from './libs/getCookie.ts';
 
 function App() {
   const router = createBrowserRouter(
@@ -23,13 +24,25 @@ function App() {
       <Route>
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
-        <Route path='/' element={<ClientLayout />} >
+        <Route path='/' element={<ClientLayout />} loader={() => {
+          const token = getCookie('accessToken')
+          if (!token) return redirect('/login')
+          return null
+        }}>
           <Route index element={<HomePage />} />
           <Route path='/product' element={<ProductsList />} />
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/404' element={<NotFoundPage />} />
         </Route>
-        <Route path="admin" element={<AdminLayout />} >
+        <Route path="admin" element={<AdminLayout />} loader={async () => {
+          //check auth role
+          // const token = getCookie('accessToken')
+          // const userId = getCookie('userId')
+          // const res = await get(`/users/${getCookie("userId")}`);
+          // const userId = getCookie('userId')
+          // if (!token && userId && res?.data?.role === 'admin') return redirect('/')
+          // return null
+        }} >
           <Route index element={<Dashboard />} />
           <Route path="product" element={<ProductsList />} />
           <Route path="product/:id" element={<DetailPage />} />

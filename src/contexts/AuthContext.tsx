@@ -5,8 +5,8 @@ import React, {
   useMemo,
   useState,
 } from "react";
-import Cookies from "js-cookie";
 import { get } from "../services/api.ts";
+import { getCookie, removeCookie } from "../libs/getCookie.ts";
 
 const AuthContext = createContext(undefined);
 
@@ -22,9 +22,9 @@ const AuthProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState<any>(undefined);
 
   const fetchProfile = async () => {
-    if (Cookies.get("accessToken") && Cookies.get("userId")) {
+    if (getCookie("accessToken") && getCookie("userId")) {
       try {
-        const res = await get(`/users/${Cookies.get("userId")}`);
+        const res = await get(`/users/${getCookie("userId")}`);
         setUserInfo(res.data);
       } catch (error) {
         console.log(error.message);
@@ -47,8 +47,8 @@ const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setUserInfo(undefined);
-    Cookies.remove("accessToken");
-    Cookies.remove("userId");
+    removeCookie("accessToken");
+    removeCookie("userId");
     window.location.href = "/login";
   };
 

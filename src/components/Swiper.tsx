@@ -9,8 +9,8 @@ const SwiperComponent = () => {
       spaceBetween={0}
       slidesPerView={1}
       className="flex w-[calc(100vw-320px)] h-screen [&_.swiper-wrapper]:flex overflow-hidden relative"
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}
+      // onSlideChange={() => console.log("slide change")}
+      // onSwiper={(swiper) => console.log(swiper)}
       loop
       effect={"fade"}
       autoplay={{

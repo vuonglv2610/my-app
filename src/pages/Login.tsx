@@ -4,7 +4,7 @@ import { REGEX_EMAIL } from "../configs/regexConfig.ts";
 import { Link } from "react-router-dom";
 import { login } from "../services/api.ts";
 import { toast } from "react-toastify";
-import Cookies from "js-cookie";
+import { setCookie } from "../libs/getCookie.ts";
 
 const LoginPage = () => {
   const {
@@ -17,8 +17,8 @@ const LoginPage = () => {
     try {
       const response: any = await login(data);
       if (response.data) {
-        Cookies.set("accessToken", response.data.accessToken);
-        Cookies.set("userId", response.data.user.id);
+        setCookie("accessToken", response.data.accessToken);
+        setCookie("userId", response.data.user.id);
         toast.success(response.statusText);
         window.location.href = "/";
       } else {

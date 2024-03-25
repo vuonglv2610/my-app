@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import navbarConfig from "../configs/navbarConfig.ts";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import Cookies from "js-cookie";
 import { useAuthProvider } from "../contexts/AuthContext.tsx";
 
 const Navbar = () => {

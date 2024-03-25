@@ -1,11 +1,11 @@
 import React from "react";
 import MainInfor from "./MainInfor.tsx";
 import { useGetQuery } from "../hooks/useGetQuery.ts";
-import Cookies from "js-cookie";
 import { useAuthProvider } from "../contexts/AuthContext.tsx";
+import { getCookie } from "../libs/getCookie.ts";
 
 const HomePage = () => {
-  const accessToken = Cookies.get("accessToken");
+  const accessToken = getCookie("accessToken");
   const { userInfo, logout } = useAuthProvider();
   const user: any = userInfo;
   const data: any = useGetQuery("/comments", {}, false, !!accessToken);
