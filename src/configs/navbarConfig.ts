@@ -13,7 +13,11 @@ const navbarConfig = [
   },
   {
     href: "/admin/product",
-    title: "Product management",
+    title: "Admin management",
+  },
+  {
+    href: "/product",
+    title: "Product Page",
   },
   {
     href: "/gallery",

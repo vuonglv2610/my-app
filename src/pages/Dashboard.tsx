@@ -1,11 +1,10 @@
 import React from "react";
-import TableComponent from "../components/Table.tsx";
+import TableManage from "../components/TableManage.tsx";
 
 const Dashboard = () => {
   return (
     <div>
-      Dashboard
-      <TableComponent />
+      <TableManage url="/products" />
     </div>
   );
 };

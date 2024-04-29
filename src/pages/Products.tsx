@@ -3,7 +3,9 @@ import Card from "../components/Card.tsx";
 
 const ProductsList = () => {
   return (
-    <div className="grid grid-cols-3 gap-[40px]">
+    <div className="flex flex-wrap gap-[25px] mx-auto my-12 w-fit">
+      <Card />
+      <Card />
       <Card />
       <Card />
       <Card />

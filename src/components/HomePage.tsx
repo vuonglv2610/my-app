@@ -8,7 +8,7 @@ const HomePage = () => {
   const accessToken = getCookie("accessToken");
   const { userInfo, logout } = useAuthProvider();
   const user: any = userInfo;
-  const data: any = useGetQuery("/comments", {}, false, !!accessToken);
+  const { data }: any = useGetQuery("/comments", {}, false, !!accessToken);
   return (
     <div className="flex-grow px-4 bg-main-infor w-full">
       <h1>{user?.fullname}</h1>

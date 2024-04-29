@@ -3,9 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Card = () => {
+
+const Card = (props) => {
   return (
-    <div className="text-left w-[380px] px-[15px]">
+    <div className={`text-left w-[380px] px-[15px] ${props.class}`}>
       <Link to="/admin/product/1">
         <img
           className="w-[350px] h-[330px] object-cover"
@@ -20,7 +21,7 @@ const Card = () => {
         >
           TECHNOLOGY
         </Link>
-        <div className="text-[22px] font-bold mb-4">
+        <div className="text-[22px] font-bold mb-4 text-black">
           The Newest Technology On This Year 2019
         </div>
         <div className="text-[#999999] text-[15px] font[500] leading-[1.8] mb-4">

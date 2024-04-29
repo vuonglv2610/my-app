@@ -17,6 +17,7 @@ import DetailPage from './pages/Detail.tsx';
 import RegisterPage from './pages/RegisterPage.tsx';
 import AuthProvider from './contexts/AuthContext.tsx';
 import { getCookie } from './libs/getCookie.ts';
+import TableManage from './components/TableManage.tsx';
 
 function App() {
   const router = createBrowserRouter(
@@ -34,7 +35,8 @@ function App() {
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/404' element={<NotFoundPage />} />
         </Route>
-        <Route path="admin" element={<AdminLayout />} loader={async () => {
+        <Route path="admin" element={<AdminLayout />}
+        //  loader={async () => {
           //check auth role
           // const token = getCookie('accessToken')
           // const userId = getCookie('userId')
@@ -42,10 +44,12 @@ function App() {
           // const userId = getCookie('userId')
           // if (!token && userId && res?.data?.role === 'admin') return redirect('/')
           // return null
-        }} >
+        // }} 
+        >
           <Route index element={<Dashboard />} />
-          <Route path="product" element={<ProductsList />} />
+          <Route path="product" element={<TableManage url="/products" />} />
           <Route path="product/:id" element={<DetailPage />} />
+          <Route path="product/edit/:id" element={<DetailPage />} />
         </Route>
       </Route>
     )
