@@ -18,7 +18,11 @@ const TableManage = ({ isShowFooter = true, url }: TableManageProps) => {
   const { data, totals, fetchData } = useGetQuery(
     `${url}?_page=${page}&_limit=${limit}`
   );
+
   const numbers = Array.from({ length: totalPage }, (_, index) => index);
+  // get giá trị nối chuỗi vào url
+  //tạo button submit search và cancel
+  console.log('input',select,input)
 
   useEffect(() => {
     setTotalPage((totals / 10).toFixed());
@@ -37,9 +41,9 @@ const TableManage = ({ isShowFooter = true, url }: TableManageProps) => {
         <select
           id="small"
           onChange={(e) => setSelect(e.target.value)}
-          className="w-[320px] block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="w-[320px] block pl-[30px] p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         >
-          <option value="ALL">ALL</option>
+          <option value="">ALL</option>
           <option value="US">United States</option>
           <option value="CA">Canada</option>
           <option value="FR">France</option>
@@ -126,14 +130,14 @@ const TableManage = ({ isShowFooter = true, url }: TableManageProps) => {
             id="small"
             onChange={(e) => {
               setLimit(e.target.value);
-              if (e.target.value > totals) {
+              if (e.target.value >= totals) {
                 setTotalPage(1);
                 setPage(1);
               } else {
                 setTotalPage((totals / 10).toFixed());
               }
             }}
-            className="w-[60px] m-2 block p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="w-[75px] m-2 block p-2 pl-[20px] text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option value="10">10</option>
             <option value="15">15</option>
